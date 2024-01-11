@@ -1,4 +1,4 @@
-# 高速磁浮DSC1仿真模型
+# 高速磁浮悬浮状态诊断模块
 
 ## 配置
 
@@ -17,5 +17,5 @@ VITE_WEBSOCKET_URL=ws://x.x.x.x:port
 将 dist 目录拷贝到服务器上，然后运行 pm2 相关的命令，如：
 
 ```bash
-pm2 serve dist --name dsc1-simulation-model --port 12000
+pm2 serve dist --name floating-status-diagnosis --port 12000
 ```
