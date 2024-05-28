@@ -1,32 +1,163 @@
 let websocketUrl = null;
 let socket = null;
+var data1_state = {
+  "dianzu_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "speed_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "dianliu1_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "dianliu2_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "dianya_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "jiasudu1_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "jiasudu2_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "jianxi_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+  "err_mret": {
+    "mret0": "", "mret1": "", "mret2": "", "mret3": "", "mret4": "", "mret5": "", "mret6": "", "mret7": "", "mret8": "", "mret9": "", "mret10": "",
+    "mret11": "", "mret12": "", "mret13": "", "mret14": "", "mret15": "", "mret16": "", "mret17": "", "mret18": "", "mret19": "", "mret20": "", "mret21": "",
+    "mret22": "", "mret23": "", "mret24": "", "mret25": "", "mret26": "", "mret27": "", "mret28": "", "mret29": "", "mret30": "", "mret31": ""
+  },
+
+  "dianzu_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "speed_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "dianliu1_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "dianliu2_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "dianya_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "jiasudu1_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "jiasudu2_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "jianxi_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+  "err_mref": {
+    "mref0": "", "mref1": "", "mref2": "", "mref3": "", "mref4": "", "mref5": "", "mref6": "", "mref7": "", "mref8": "", "mref9": "", "mref10": "",
+    "mref11": "", "mref12": "", "mref13": "", "mref14": "", "mref15": "", "mref16": "", "mref17": "", "mref18": "", "mref19": "", "mref20": "", "mref21": "",
+    "mref22": "", "mref23": "", "mref24": "", "mref25": "", "mref26": "", "mref27": "", "mref28": "", "mref29": "", "mref30": "", "mref31": ""
+  },
+
+  "dianliu1_mreb": { "mreb0": "", "mreb1": "", "mreb2": "", "mreb3": "", "mreb4": "", "mreb5": "", "mreb6": "", "mreb7": "", "mreb8": "" },
+  "dianliu2_mreb": { "mreb0": "", "mreb1": "", "mreb2": "", "mreb3": "", "mreb4": "", "mreb5": "", "mreb6": "", "mreb7": "", "mreb8": "" },
+  "dianya_mreb": { "mreb0": "", "mreb1": "", "mreb2": "", "mreb3": "", "mreb4": "", "mreb5": "", "mreb6": "", "mreb7": "", "mreb8": "" },
+  "err_mreb": { "mreb0": "", "mreb1": "", "mreb2": "", "mreb3": "", "mreb4": "", "mreb5": "", "mreb6": "", "mreb7": "", "mreb8": "" }
+
+}
+var mret_state = {}
+var mref_state = {}
+var mreb_state = {}
 
 // 在 web worker 中创建一个 WebSocket 客户端
 self.onmessage = function (event) {
-  websocketUrl = event.data;
+  websocketUrl = event.data.env.VITE_WEBSOCKET_URL;
 
   // 初始连接
   connectWebSocket();
 };
 
+async function blobToHexstring(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = function () {
+      if (this.result instanceof ArrayBuffer) {
+        const byteArray = new Uint8Array(this.result);
+        const hexString = Array.from(byteArray).map(byte => byte.toString(16).padStart(2, '0')).join('');
+        resolve(hexString);
+      } else {
+        reject(new Error('Invalid result type'));
+      }
+
+    };
+    reader.onerror = reject
+    reader.readAsArrayBuffer(blob);
+  })
+}
+
+// 使用示例
+async function handleBlobData(blob) {
+  try {
+    const hexString = await blobToHexstring(blob);
+    const processedData = handleReceivedData(hexString);
+    postMessage(processedData);
+  } catch (error) {
+    console.error(error);
+  }
+}
 // 建立 WebSocket 连接
 function connectWebSocket() {
   socket = new WebSocket(websocketUrl);
 
   // 处理 WebSocket 连接事件
   socket.onopen = function () {
-    console.log("WebSocket 连接已建立");
+    // console.log("WebSocket 连接已建立");
   };
 
   // 处理 WebSocket 接收到的消息
   socket.onmessage = function (event) {
-    const processedData = handleReceivedData(event.data);
-    postMessage(processedData);
+    // const processedData = handleReceivedData(event.data);
+    // postMessage(processedData);
+    handleBlobData(event.data);
   };
 
   // 处理 WebSocket 关闭事件
   socket.onclose = function () {
-    console.log("WebSocket 连接已关闭");
+    // console.log("WebSocket 连接已关闭");
     // 断开后重新连接
     setTimeout(connectWebSocket, 1000);
   };
@@ -42,17 +173,14 @@ function connectWebSocket() {
 // 处理接收到的数据
 function handleReceivedData(dataAll) {
   // ...
-  console.log(dataAll)
   var data1 = dataAll.toString('hex');
   var data = data1.replaceAll(' ', '')
   /* 2023.5.23  王昌凡编写*/
   var symple = data.substr(10, 2)
-  console.log(symple)
   switch (symple) {
     case "01":
       var dianzu_mret_th = mretDataProcess(74, data, 29.4, 0)
       replaceObject(data1_state.dianzu_mret, dianzu_mret_th)
-      console.log(data1_state.dianzu_mret)
       var speed_mret_th = mretDataProcess(76, data, 2.5, 0)
       replaceObject(data1_state.speed_mret, speed_mret_th)
       var dianliu1_mret_th = mretDataProcess(82, data, 0.3137, 0)
@@ -80,11 +208,9 @@ function handleReceivedData(dataAll) {
 
       let str = JSON.stringify(mret_state);
       return str;
-      break;
     case "02":
       var dianzu_mref_th = mrefDataProcess(72, data, 29.4, 0)
       replaceObject(data1_state.dianzu_mref, dianzu_mref_th)
-      console.log(data1_state.dianzu_mref)
       var speed_mref_th = mrefDataProcess(74, data, 2.5, 0)
       replaceObject(data1_state.speed_mref, speed_mref_th)
       var dianliu1_mref_th = mrefDataProcess(80, data, 0.3137, 0)
@@ -109,13 +235,12 @@ function handleReceivedData(dataAll) {
       mref_state['jiasudu2_mref'] = data1_state.jiasudu2_mref;
       mref_state['jianxi_mref'] = data1_state.jianxi_mref;
 
-      str = JSON.stringify(mref_state);
-      return str;
-      break;
+      let str2 = JSON.stringify(mref_state);
+      return str2;
     case "03":
       var dianliu1_mreb_th = mrebDataProcess(64, data, 0.3137, 0)
       replaceObject(data1_state.dianliu1_mreb, dianliu1_mreb_th)
-      console.log(data1_state.dianzu_mref)
+      // console.log(data1_state.dianzu_mref)
       var dianliu2_mreb_th = mrebDataProcess(66, data, 0.3137, 0)
       replaceObject(data1_state.dianliu2_mreb, dianliu2_mreb_th)
       var dianya_mreb_th = mrebDataProcess(80, data, 0.3137, 0)
@@ -125,9 +250,8 @@ function handleReceivedData(dataAll) {
       mreb_state['dianliu2_mreb'] = data1_state.dianliu2_mreb;
       mreb_state['dianya_mreb'] = data1_state.dianya_mreb;
 
-      str = JSON.stringify(mreb_state);
-      return str;
-      break;
+      let str3 = JSON.stringify(mreb_state);
+      return str3;
   }
 }
 /* 2023.5.23  王昌凡编写*/
@@ -230,4 +354,8 @@ function replaceObject(newObject, oldObject) {//对象赋值函数，将方法�
   for (let key in oldObject) {
     newObject[key] = oldObject[key]
   }
+}
+function hexto10(hex){  //十六进制转10进制
+  var hexto10 = parseInt(hex,16)
+  return hexto10;//十六进制转10进制
 }

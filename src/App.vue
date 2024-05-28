@@ -103,13 +103,13 @@ export default {
 			var date = timeObj.getDate();
 			var time = timeObj.toTimeString().split(" ")[0];
 			str = time;
-			console.log("------当前日期：" + str);
+			// console.log("------当前日期：" + str);
 			return str;
 		}
 		//增加时间
 		const addTime = (num) => {
 			var curTime = new Date()
-			console.log(curTime)
+			// console.log(curTime)
 			var addSeconds = new Date(curTime.setSeconds(curTime.getSeconds() + num));
 			return addSeconds
 		}
@@ -139,11 +139,8 @@ export default {
 				const message = event.data;
 				var data_state = JSON.parse(message)//转换为双层对象
 				var symple = data_state.symple // 定义标志位并赋值
-				console.log(symple)
-				console.log(data_state)
 				switch (symple) {
 					case "01":
-						console.log("AQEQEQEQEQEQEQEQEQWEQEQEQEQ")
 						var dianzu_mret_th1 = data_state.dianzu_mret//双层对象替换为单层对象
 						//console.log(x_Dianzumret)
 
